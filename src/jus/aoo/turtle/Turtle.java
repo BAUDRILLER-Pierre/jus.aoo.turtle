@@ -28,7 +28,7 @@ public class Turtle {
 	protected boolean estLeve;  // �tat de la plume
 	protected Point position;   // la position courante de la tortue
 	protected Vecteur cap;      // direction courante de la tortue
-	
+	protected int rotation; //angle absolue de la tortue
 	
 	/**
 	* le constructeur de tortue
@@ -39,6 +39,7 @@ public class Turtle {
 		this.feuille=feuille;
 		try{
 			position = new Point(0,0);
+			rotation = 0;
 		
 		}catch(Require e) {
 		}
@@ -113,6 +114,7 @@ public class Turtle {
 	* @ensure PositionInchange : new Vecteur(_position(),position()).module() < Vecteur.EPSILON
 	*/
 	public void droite(int a) {
+		rotation+=a;
 		cap.rotation((double)-a);
 		image.rotation(-a);
 		feuille.repaint();
@@ -125,6 +127,7 @@ public class Turtle {
 	* @ensure PositionInchange : new Vecteur(_position(),position()).module() < Vecteur.EPSILON
 	*/
 	public void gauche(int a) {
+		rotation-=a;
 		cap.rotation((double)a);
 		image.rotation(a);
 		feuille.repaint();
@@ -158,7 +161,7 @@ public class Turtle {
 	 * @require argumentValide : a>=0
 	**/
 	public void tournerVers(int d){
-		droite(cap.module());
+		droite(d-rotation);
 	}
 	
 	/**	
