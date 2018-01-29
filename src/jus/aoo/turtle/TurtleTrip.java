@@ -67,6 +67,8 @@ public class TurtleTrip extends JApplet {
 	private JButton gauche = null;
 	private JButton quit = null;
 	private JButton clear = null;
+	private JButton allerA = null;
+	private JButton tournerVers = null;
 	private JPanel jPanel = null;
 	private JPanel jPanel1 = null;
 	private JPanel jPanel2 = null;
@@ -262,6 +264,20 @@ public class TurtleTrip extends JApplet {
 		}
 		return clear;
 	}
+	
+	private JButton getAllerA(){
+		if(allerA == null){
+			allerA = new JButton();
+			allerA.setText("Aller à");
+			allerA.addActionListener(new java.awt.event.ActionListener(){
+				public void actionPerformed(java.awt.event.ActionEvent e){
+					turtle.allerA(new Point(0,0));
+				}
+			});
+		}
+		
+		return allerA;
+	}
 	/**
 	 * This method initializes jPanel		
 	 * @return javax.swing.JPanel	
@@ -277,6 +293,7 @@ public class TurtleTrip extends JApplet {
 			jPanel.add(getDroite(), null);
 			jPanel.add(getGauche(), null);
 			jPanel.add(getPlume(), null);
+			jPanel.add(getAllerA(),null);
 		}
 		return jPanel;
 	}

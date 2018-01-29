@@ -28,6 +28,7 @@ public class Turtle {
 	protected boolean estLeve;  // �tat de la plume
 	protected Point position;   // la position courante de la tortue
 	protected Vecteur cap;      // direction courante de la tortue
+	protected Point newPosition;
 	/**
 	* le constructeur de tortue
 	* @param feuille la surface explor�e
@@ -37,6 +38,7 @@ public class Turtle {
 		this.feuille=feuille;
 		try{
 			position = new Point(0,0);
+			
 		}catch(Require e) {
 		}
 		cap = new Vecteur(Vecteur.UNITE);
@@ -142,7 +144,11 @@ public class Turtle {
 	 * @require argumentValide : p.x() <= feuille.width/2 && p.y() <= feuille.height/2 && p.x() >= -(feuille.width/2) && p.x() >= -(feuille.height/2)
 	**/
 	public void allerA(Point p){
-		this.position=p;
+		Vecteur v = new Vecteur(this.position, p);
+		position.translation(v);
+		image.translation(v);
+		feuille.repaint();
+		System.out.println("AllerA : "+p + "\n this.position : "+ this.position);
 	}
 	
 	/**
