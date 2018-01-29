@@ -265,6 +265,10 @@ public class TurtleTrip extends JApplet {
 		return clear;
 	}
 	
+	/**
+	 * This method put the turtle at a new position
+	 * @return java.swing.JButton
+	 */
 	private JButton getAllerA(){
 		if(allerA == null){
 			allerA = new JButton();
@@ -278,6 +282,23 @@ public class TurtleTrip extends JApplet {
 		
 		return allerA;
 	}
+	/**
+	 * This method put the turtle at a new position
+	 * @return java.swing.JButton
+	 */
+	private JButton getTournerVers(){
+		if(tournerVers == null){
+			tournerVers = new JButton();
+			tournerVers.setText("Se tourner vers");
+			tournerVers.addActionListener(new java.awt.event.ActionListener(){
+				public void actionPerformed(java.awt.event.ActionEvent e){
+					turtle.tournerVers(rotation.getValue());
+				}
+			});
+		}
+		
+		return tournerVers;
+	}	
 	/**
 	 * This method initializes jPanel		
 	 * @return javax.swing.JPanel	
@@ -294,6 +315,7 @@ public class TurtleTrip extends JApplet {
 			jPanel.add(getGauche(), null);
 			jPanel.add(getPlume(), null);
 			jPanel.add(getAllerA(),null);
+			jPanel.add(getTournerVers(),null);
 		}
 		return jPanel;
 	}

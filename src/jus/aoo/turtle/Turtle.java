@@ -29,6 +29,7 @@ public class Turtle {
 	protected Point position;   // la position courante de la tortue
 	protected Vecteur cap;      // direction courante de la tortue
 	
+	
 	/**
 	* le constructeur de tortue
 	* @param feuille la surface explor�e
@@ -157,9 +158,8 @@ public class Turtle {
 	 * @require argumentValide : a>=0
 	**/
 	public void tournerVers(int d){
-		droite(d);
+		droite(cap.module());
 	}
-	
 	
 	/**	
 	* Leve la plume
