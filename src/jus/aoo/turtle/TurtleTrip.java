@@ -271,7 +271,7 @@ public class TurtleTrip extends JApplet {
 			allerA.setText("Aller à");
 			allerA.addActionListener(new java.awt.event.ActionListener(){
 				public void actionPerformed(java.awt.event.ActionEvent e){
-					turtle.allerA(new Point(0,0));
+					turtle.allerA(new Point(abscisse.getValue(),ordonnee.getValue()));
 				}
 			});
 		}
@@ -455,6 +455,7 @@ public class TurtleTrip extends JApplet {
 			abscisse.addChangeListener(new javax.swing.event.ChangeListener(){
 				public void stateChanged(javax.swing.event.ChangeEvent e) {
 					valueAbscisse.setText(""+abscisse.getValue());
+					
 				}
 			});
 		}
@@ -489,6 +490,7 @@ public class TurtleTrip extends JApplet {
 			ordonnee.addChangeListener(new javax.swing.event.ChangeListener(){
 				public void stateChanged(javax.swing.event.ChangeEvent e) {
 					valueOrdonnee.setText(""+ordonnee.getValue());
+					
 				}
 			});
 		}

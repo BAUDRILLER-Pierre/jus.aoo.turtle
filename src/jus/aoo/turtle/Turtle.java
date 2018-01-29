@@ -28,7 +28,7 @@ public class Turtle {
 	protected boolean estLeve;  // �tat de la plume
 	protected Point position;   // la position courante de la tortue
 	protected Vecteur cap;      // direction courante de la tortue
-	protected Point newPosition;
+	
 	/**
 	* le constructeur de tortue
 	* @param feuille la surface explor�e
@@ -38,7 +38,7 @@ public class Turtle {
 		this.feuille=feuille;
 		try{
 			position = new Point(0,0);
-			
+		
 		}catch(Require e) {
 		}
 		cap = new Vecteur(Vecteur.UNITE);
@@ -160,6 +160,7 @@ public class Turtle {
 		droite(d);
 	}
 	
+	
 	/**	
 	* Leve la plume
 	* @ensure PlumeLev�e : estLeve()
@@ -190,4 +191,6 @@ public class Turtle {
 	* @return	true si la plume est lev�e
 	*/
 	public  boolean estLeve() {return estLeve;}
+	
+
 }
