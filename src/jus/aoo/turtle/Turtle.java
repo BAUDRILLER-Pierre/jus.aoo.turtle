@@ -5,6 +5,8 @@ import static jus.aoo.geometrie.DrawingSpace.Repere.CENTRE;
 
 import java.io.IOException;
 
+import javax.swing.SingleSelectionModel;
+
 import jus.aoo.geometrie.DrawingSpace;
 import jus.aoo.geometrie.Point;
 import jus.aoo.geometrie.Segment;
@@ -82,7 +84,9 @@ public class Turtle {
 	public void avancer(int d) {
 		Point _position = new Point(position);
 		Vecteur v = new Vecteur(cap); v.homothetie(d);
-		position.translation(v);
+		v = CVR(v);
+		//position.translation(v);
+		System.out.println("Position x : " + position.abscisse() + " Position y : " + position.ordonnee());
 		image.translation(v);
 		if(!estLeve){
 			feuille.add(new Segment(_position,position));
@@ -137,10 +141,27 @@ public class Turtle {
 	/**
 	 * 
 	 */
-	/*public void calculerVecteurReel(){
-		
+	private Vecteur CVR(Vecteur v){
+		if (!(feuille.getWidth()/2 > Math.abs(position.abscisse()+v.dx())  && feuille.getHeight()/2 > Math.abs(position.ordonnee()+ v.dy()))){
+		//if(!visible()){
+			System.out.println("CVR : pas visible");
+			//Calcul droite gauche
+			double pc = feuille.getWidth()/2-(Math.abs(position.abscisse()));
+			double gc =Math.abs(v.dx());
+			System.out.println("Pc = " + pc + " Gc = " + gc + " Ratio = " + pc/gc);
+			v.homothetie(pc/gc);
+			System.out.println("V.dx() = " + v.dx() + " v.dy() " + v.dy());
+			position.translation(v);
+			
+			//Calcul haut bas
+			//pc = feuille.getHeight()/2-(position.ordonnee());
+			//gc = v.dy() - position.ordonnee();
+		//v.homothetie(pc/gc);
+			//position.translation(v);
+		}
+		return v;
 	}
-	*/
+	
 	
 	/**
 	 * Positionne au point p
