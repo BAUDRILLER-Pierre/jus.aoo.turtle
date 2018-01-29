@@ -127,6 +127,33 @@ public class Turtle {
 		feuille.repaint();
 		_invariant();
 	}
+	
+	/**
+	 * 
+	 */
+	/*public void calculerVecteurReel(){
+		
+	}
+	*/
+	
+	/**
+	 * Positionne au point p
+	 * @param p, coordonnée de la nouvelle position
+	 * @require argumentValide : p.x() <= feuille.width/2 && p.y() <= feuille.height/2 && p.x() >= -(feuille.width/2) && p.x() >= -(feuille.height/2)
+	**/
+	public void allerA(Point p){
+		this.position=p;
+	}
+	
+	/**
+	 * Tourne la tortue vers la direction souhaitée
+	 * @param d, l'angle de rotation en degr�
+	 * @require argumentValide : a>=0
+	**/
+	public void tournerVers(int d){
+		droite(d);
+	}
+	
 	/**	
 	* Leve la plume
 	* @ensure PlumeLev�e : estLeve()
